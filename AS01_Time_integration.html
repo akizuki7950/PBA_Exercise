@@ -344,7 +344,7 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 				let p = this.particles[i];
 				
 				p.x = p.x + dt * p.vx + 0.5*p.fx*dt*dt/this.mass;
-				p.y = p.y + dt * p.vy + 0.5*p.fy*dt*dt/this.mass;
+				p.y = p.y + dt * p.vy + 0.5*(p.fy / this.mass + this.gravity)*dt*dt;
 
 				p.vx = p.vx + dt*(p.fx/this.mass+p.fx/this.mass)*0.5;
 				p.vy = p.vy + dt*(p.fy / this.mass + this.gravity + p.fy / this.mass + this.gravity)*0.5;
